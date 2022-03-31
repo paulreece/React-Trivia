@@ -5,7 +5,6 @@ import he from "he";
 
 const QuestionList = ({ id }) => {
   const [questions, setQuestions] = useState([]);
-  const [questionIndex, setQuestionIndex] = useState(0);
   const questId = useId();
 
   useEffect(() => {
@@ -17,7 +16,7 @@ const QuestionList = ({ id }) => {
   return (
     <div>
       {questions.map((question, index) => {
-        if (index === questionIndex) {
+        if (index === 0) {
           return (
             <div key={questId}>
               <Question
@@ -32,6 +31,7 @@ const QuestionList = ({ id }) => {
             </div>
           );
         }
+        return null;
       })}
     </div>
   );
