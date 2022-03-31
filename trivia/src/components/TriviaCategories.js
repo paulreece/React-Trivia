@@ -4,10 +4,14 @@ import { Category } from "./Category";
 import { Question } from "./Question";
 import he from "he";
 import { QuestionList } from "./QuestionList";
+import { nanoid } from "nanoid";
 
 const TriviaCategories = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const divTriviaId = useId();
+  const divCatId = useId();
+  const buttonId = useId();
 
   useEffect(() => {
     axios
@@ -18,13 +22,13 @@ const TriviaCategories = () => {
   return (
     <>
       {selectedCategory ? (
-        <div>
+        <div key={divTriviaId}>
           <Category
             key={selectedCategory.id}
             name={selectedCategory.name}
             id={selectedCategory.id}
           />
-          <button onClick={() => setSelectedCategory(null)}>
+          <button key={buttonId} onClick={() => setSelectedCategory(null)}>
             Back to Category List
           </button>
           <QuestionList id={selectedCategory.id} />
@@ -32,7 +36,10 @@ const TriviaCategories = () => {
       ) : (
         <div>
           {categories.map((category) => (
-            <div onClick={() => setSelectedCategory(category)}>
+            <div
+              key={category.id}
+              onClick={() => setSelectedCategory(category)}
+            >
               <Category
                 key={category.id}
                 name={category.name}

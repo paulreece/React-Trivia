@@ -5,6 +5,7 @@ import { TriviaCategories } from "./components/TriviaCategories";
 import { Counter } from "./components/Counter";
 import { Counter_Reducer } from "./components/CountReducer";
 import { Question } from "./components/Question";
+import { useId } from "react";
 
 function App() {
   return (

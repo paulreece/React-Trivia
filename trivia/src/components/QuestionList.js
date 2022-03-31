@@ -6,6 +6,8 @@ import he from "he";
 const QuestionList = ({ id }) => {
   const [questions, setQuestions] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0);
+  const questId = useId();
+
   useEffect(() => {
     axios
       .get(`https://opentdb.com/api.php?amount=10&category=${id}&type=multiple`)
@@ -17,7 +19,7 @@ const QuestionList = ({ id }) => {
       {questions.map((question, index) => {
         if (index === questionIndex) {
           return (
-            <div>
+            <div key={questId}>
               <Question
                 key={index}
                 question={he.decode(question.question)}
