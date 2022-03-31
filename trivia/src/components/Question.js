@@ -1,5 +1,4 @@
-import { useEffect, useState, useId } from "react";
-import axios from "axios";
+import { useId } from "react";
 
 const Question = ({ id, correct_answer, incorrect_answers, question }) => {
   const questId = useId();

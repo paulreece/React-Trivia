@@ -1,16 +1,12 @@
 import { useEffect, useState, useId } from "react";
 import axios from "axios";
 import { Category } from "./Category";
-import { Question } from "./Question";
-import he from "he";
 import { QuestionList } from "./QuestionList";
-import { nanoid } from "nanoid";
 
 const TriviaCategories = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const divTriviaId = useId();
-  const divCatId = useId();
   const buttonId = useId();
 
   useEffect(() => {
@@ -53,7 +49,3 @@ const TriviaCategories = () => {
   );
 };
 export { TriviaCategories };
-
-{
-  /* <a href={`https://opentdb.com/api_count.php?category=${category.id}`}></a> */
-}
