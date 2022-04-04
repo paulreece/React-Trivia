@@ -2,7 +2,7 @@
 
 [The Tastiest Trivia Treats on the Web](https://trivia-50a19d.netlify.app/)
 
-All the spicy's.  To quote Dune ""The spice extends life. The spice expands consciousness. The spice is vital to space travel." 
+All the spicy's.  To quote Dune "The spice extends life. The spice expands consciousness. The spice is vital to space travel." 
 
 
 # Build a Trivia Game
