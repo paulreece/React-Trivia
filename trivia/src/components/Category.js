@@ -1,7 +1,9 @@
-const Category = ({ id, name, category }) => {
+const Category = ({ id, name, onClick }) => {
   return (
     <>
-      <div key={id}>{name}</div>
+      <div key={id} onClick={onClick}>
+        {name}{" "}
+      </div>
     </>
   );
 };

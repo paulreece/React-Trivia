@@ -3,20 +3,44 @@ import axios from "axios";
 import { Question } from "./Question";
 import he from "he";
 
-const QuestionList = ({ id }) => {
+const QuestionList = ({
+  id,
+  indexes,
+  questIndex,
+  setScore,
+  score,
+  difficulty,
+  noQuest,
+  correctResult,
+  setCorrectResult,
+  setQuestIndex,
+}) => {
   const [questions, setQuestions] = useState([]);
   const questId = useId();
-
+  const [token, setToken] = useState("");
+  let indexArray = [];
   useEffect(() => {
     axios
-      .get(`https://opentdb.com/api.php?amount=10&category=${id}&type=multiple`)
+      .get(
+        `https://opentdb.com/api.php?amount=${noQuest}&category=${id}&difficulty=${difficulty}&type=multiple&token=${token}`
+      )
       .then((response) => setQuestions(response.data.results));
-  }, [id]);
-  console.log(questions[0]?.type);
+  }, [id, token, difficulty, noQuest]);
+  useEffect(() => {
+    axios
+      .get("https://opentdb.com/api_token.php?command=request")
+      .then((response) => setToken(response.data.token));
+  }, []);
+  console.log(questions);
+  console.log(difficulty);
   return (
     <div>
       {questions.map((question, index) => {
-        if (index === 0) {
+        indexArray.push(index);
+        if (
+          index === indexArray[questIndex] &&
+          indexArray.includes(questIndex)
+        ) {
           return (
             <div key={questId}>
               <Question
@@ -27,9 +51,21 @@ const QuestionList = ({ id }) => {
                   (incorrect_answer) =>
                     (incorrect_answer = he.decode(incorrect_answer))
                 )}
+                setScore={setScore}
+                score={score}
+                correctResult={correctResult}
+                setCorrectResult={setCorrectResult}
+                questIndex={questIndex}
+                setQuestIndex={setQuestIndex}
               />
             </div>
           );
+          // } else {
+          //   <div>
+          //     <h2>Out of Questions</h2>
+          //     <CorrectResult correctResult={correctResult} noQuest={noQuest} />
+          //     <Reset catReset={catReset}></Reset>
+          //   </div>;
         }
         return null;
       })}
