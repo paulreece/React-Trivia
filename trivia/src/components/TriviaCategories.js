@@ -121,7 +121,7 @@ const TriviaCategories = () => {
           </div>
           <MyTimer />
         </div>
-      ) : selectedCategory && correctResult >= noQuest / 5 ? (
+      ) : selectedCategory && correctResult >= noQuest / 2 ? (
         <div>
           <h2>Congrats you win!!</h2>
           <CorrectResult correctResult={correctResult} noQuest={noQuest} />
@@ -150,7 +150,7 @@ const TriviaCategories = () => {
             <TwitterIcon />
           </TwitterShareButton>
         </div>
-      ) : selectedCategory && correctResult < noQuest / 5 ? (
+      ) : selectedCategory && correctResult < noQuest / 2 ? (
         <div>
           <h2>You lose! Better Luck Next Time!</h2>
           <CorrectResult correctResult={correctResult} noQuest={noQuest} />
