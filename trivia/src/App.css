@@ -139,3 +139,6 @@ button:active {
   display: grid;
   padding-left: 40px;
 }
+.socialButtons {
+  padding-left: 35px;
+}

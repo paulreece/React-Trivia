@@ -8,24 +8,13 @@ import "@reach/menu-button/styles.css";
 import { CorrectResult } from "./CorrectResult";
 import { Reset } from "./Reset";
 import { MyTimer } from "./MyTimer";
-// import Confetti from "react-confetti";
-// import  'Rick_Astley.png' from "./Rick_Astley.png";
 import {
   EmailShareButton,
   FacebookShareButton,
-  InstapaperShareButton,
-  PinterestShareButton,
   RedditShareButton,
   TwitterShareButton,
 } from "react-share";
-import {
-  EmailIcon,
-  FacebookIcon,
-  InstapaperIcon,
-  PinterestIcon,
-  RedditIcon,
-  TwitterIcon,
-} from "react-share";
+import { EmailIcon, FacebookIcon, RedditIcon, TwitterIcon } from "react-share";
 
 const TriviaCategories = () => {
   const [categories, setCategories] = useState([]);
@@ -134,19 +123,13 @@ const TriviaCategories = () => {
           <EmailShareButton>
             <EmailIcon />
           </EmailShareButton>
-          <FacebookShareButton>
+          <FacebookShareButton url="www.facebook.com/">
             <FacebookIcon />
           </FacebookShareButton>
-          <InstapaperShareButton>
-            <InstapaperIcon />
-          </InstapaperShareButton>
-          <PinterestShareButton>
-            <PinterestIcon />
-          </PinterestShareButton>
-          <RedditShareButton>
+          <RedditShareButton url="www.reddit.com/">
             <RedditIcon />
           </RedditShareButton>
-          <TwitterShareButton>
+          <TwitterShareButton url="www.twitter.com/">
             <TwitterIcon />
           </TwitterShareButton>
         </div>
@@ -161,25 +144,20 @@ const TriviaCategories = () => {
             alt="This is the famous 80's singer Rick Astley, commonly used in Rick Rolls"
           ></img>
           <br></br>
-          <div>Share on Social Media:</div>
-          <EmailShareButton>
-            <EmailIcon />
-          </EmailShareButton>
-          <FacebookShareButton>
-            <FacebookIcon />
-          </FacebookShareButton>
-          <InstapaperShareButton>
-            <InstapaperIcon />
-          </InstapaperShareButton>
-          <PinterestShareButton>
-            <PinterestIcon />
-          </PinterestShareButton>
-          <RedditShareButton>
-            <RedditIcon />
-          </RedditShareButton>
-          <TwitterShareButton>
-            <TwitterIcon />
-          </TwitterShareButton>
+          <div className="socialButtons">
+            <EmailShareButton>
+              <EmailIcon />
+            </EmailShareButton>
+            <FacebookShareButton url="www.facebook.com/">
+              <FacebookIcon />
+            </FacebookShareButton>
+            <RedditShareButton url="www.reddit.com/">
+              <RedditIcon />
+            </RedditShareButton>
+            <TwitterShareButton url="www.twitter.com/">
+              <TwitterIcon />
+            </TwitterShareButton>
+          </div>
         </div>
       ) : (
         <div className="catMenu">
