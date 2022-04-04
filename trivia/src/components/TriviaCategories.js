@@ -157,7 +157,7 @@ const TriviaCategories = () => {
           <Reset catReset={catReset} />
           <img
             className="astley"
-            src={require("./Rick_Astley.png")}
+            src={require("./rickroll.gif")}
             alt="This is the famous 80's singer Rick Astley, commonly used in Rick Rolls"
           ></img>
           <br></br>
